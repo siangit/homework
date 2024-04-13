@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>Undefined 외</title>
+</head>
+
+<body>
+
+    <p>종경아 자지마라</p>
+    <p class="jk">종경아 니 친구는 공부하는데</p>
+    <p class="jk" id="sleep">너는 잠이오니?</p>
+
+<script>
+   let p = window.document.querySelector("p")
+    let jk = window.document.querySelector(".jk")
+    let sleep = window.document.querySelector("#sleep")
+
+        p.textContent = "종경아 그만자라"
+        jk.textContent = "종경아 너도 공부해라"
+        sleep.textContent = "너도 자지마라"
+    
+        console.log(p.textContent)
+        console.log(jk.textContent)
+        console.log(sleep.textContent)
+
+        prompt(p.textContent)
+        
+
+   
+   
+</script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="xa-u-compatible" content="IE=edge">
+        <title>선택자 더 알아보기</title>
+        <style>
+            img[jelly]{
+                border: 5px dashed red;
+            }
+            img[width]{
+                border: 5px solid blue;
+            }
+            body p{
+                border: 5px solid green;
+            }
+            body span{
+                /* 안에 자손이여서 공백은 가능
+                    하지만 자식이 아닌 손주라서 >적용 불가능 */
+                border: 5px solid yellow;
+            }
+            #last +p{
+                /* +는 바로 다음 동생
+                    ~는 모든 동생 */
+                border: 5px solid aqua;
+            }
+
+        </style>
+</head>
+<body>
+
+    <img src="/1회차/images/jelly.png"
+        width="300px"
+        jelly="dog">
+        <img src="/1회차/images/망그러진 곰.jpeg"
+        width="300px" id="last">
+    <p>아 피곤해 자고싶다</p>
+    <p>침대에 눞고싶다</p>
+    <p>오늘은 <span>그만하고</span> 나머지는 내일 하고싶다.</p>
+    <p>하지만 그러면 안되겠지...</p>
+</body>
+</html>

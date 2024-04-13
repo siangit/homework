@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>이벤트 핸들링</title>
+</head>
+
+<body>
+
+    <button id="sbutton">sleep</button>
+    <button id="tbutton">tired</button>
+    <button id="mbutton">아몰랑</button>
+
+    <script>
+
+        //html call out by Id and naming
+        const sbutton = document.getElementById("sbutton")
+        const tbutton = document.getElementById("tbutton")
+        const mbutton = document.getElementById("mbutton")
+        
+  
+const handleClick = function(variable){ 
+       
+        if(variable.target.id=="sbutton"){
+           const  mention = document.createElement("p");
+            mention.textContent="졸려요";
+           document.body.appendChild(mention);
+          }else if(variable.target.id=="tbutton"){
+            const  mention = document.createElement("p");
+            mention.textContent="피곤해요";
+           document.body.appendChild(mention);
+            }else if(variable.target.id=="mbutton"){
+            const mention = document.createElement("p");
+            mention.textContent="아몰랑";
+            document.body.appendChild(mention);
+           } }
+
+        //호출
+        sbutton.addEventListener("click", handleClick);
+        tbutton.addEventListener("click", handleClick);
+        mbutton.addEventListener("click", handleClick);
+        
+    </script>
+</body>
+
+</html>

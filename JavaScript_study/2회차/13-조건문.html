@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>조건문</title>
+</head>
+<body>
+
+<script>
+    
+ // parseInt과 prompt 차이 확인
+    let BOD = prompt("출생연도 4자리를 적어주세요")
+    console.log(typeof BOD)
+    parseInt(console.log(BOD))
+
+    let next = parseInt(BOD)
+    console.log(typeof next)
+
+// 조건문 if 실습
+
+if(next<=2005){
+        alert(`${BOD}년생은 성인입니다`)
+    }
+        else if(next<=2024){
+        alert(`${BOD}년생은 미성년자입니다`)}
+            else if(next>2024){
+                alert(`${BOD}는 존재하지 않는 출생연도입니다.`)
+            }
+ confirm("다시 돌아가시겠습니까?")
+            
+</script>
+   
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>회원가입 폼 만들기</title>
+</head>
+<body>
+    <form id="form">
+    <div>
+    
+        <!-- list on left side -->
+         <div id="listclass">
+            <table>
+                <tr>
+                    <th>아이디</th>
+                     <td>
+                            <input id="nick" type="text" 
+                                 placeholder="아이디를 입력하세요" required>
+                         </td>
+                    </tr>
+                <tr>
+                    <th class="pw">비밀번호</th>
+                    <td>
+                            <input id="pw1" type="password" 
+                                placeholder="비밀번호를 입력하세요" required>
+            </td>
+                </tr>
+                <tr>
+                    <th class="pw">비밀번호확인</th>
+                    <td>
+                            <input id="pw2" type="password" 
+                                placeholder="비밀번호를 확인해주세요" required>
+                     </td>
+                </tr>
+                <tr>
+                    <th >이름</th>
+                    <td>
+                            <input id="name" type="text" 
+                                placeholder="이름을 입력하세요" required >
+                    </td>
+                </tr>
+                <tr>
+                    <th >전화번호</th>
+                    <td>
+                             <input id="num" type="tel" 
+                             placeholder="전화번호를 적어주세요" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th id="work">현재 직업</th>
+                     <td id="jobdropdown">
+                        <select id="job" required>
+                            <option value="student">학생</option>
+                            <option value="worker">직장인</option>
+                            <option value="houseworker">주부</option>
+                            <option value="business">사업가</option>
+                            <option value="free">프리랜서</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </td>
+                 <tr>
+                    <th>성별</th>
+                    <td id="gender">
+                            <input class="gender" name="gender" value="male" type="radio" required
+                            >male
+                            <input class="gender" name="gender" value="female" type="radio" required
+                            >female
+                    </td>
+                </tr>
+            <tr>
+                    <th class="email">이메일</th>
+                    <td>
+                <input id="email" type="text">
+                    <span>@</span>
+                    <select class="email" id="address" >
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="yahoo.com">yahoo.com</option>
+                        <option value="ozcodingschool.com">ozcodingschool.com</option>
+                        <option value="kakao.com">kakao.com</option>
+                    </select>
+                    </td>
+            <tr>
+            <th>자기소개</th>
+            <td>
+            <textarea id="info"></textarea>
+            </td>
+            </tr>
+        </table>
+            <div id="button">
+                <input type="submit" id="submit" value="가입하기">
+                <input type="reset" id="reset"value="취소하기">
+
+            </div>
+        </div>
+        
+    </div>
+    </form>
+
+
+
+<script src="22-miniproject화원가입폼만들기.js">
+
+            
+
+
+
+
+    </script>
+  
+</body>
+</html>

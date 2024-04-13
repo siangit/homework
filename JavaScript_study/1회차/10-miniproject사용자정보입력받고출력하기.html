@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>사용자 정보 입력받고 출력하기</title>
+</head>
+
+<body>
+
+<h1 id="singer"></h1>
+<p class="ask" id="why"></p>
+<p class="ask" id="how_long"></p>
+
+<script>
+    const p = window.document.querySelector("h1")
+    let answer=prompt("어떤 가수를 좋아하세요?")
+    p.textContent = answer
+
+    const q = window.document.querySelector(".ask")
+    let like=prompt("가수의 가장 좋아하는 곡은 무엇인가요?")
+    q.textContent = `가장 좋아하는 노래는 ${like} 입니다.`
+
+    const r = window.document.querySelector("#how_long")
+    let how=prompt("인상깊었던 가수의 무대는 언제인가요?")
+    r.textContent = `${how}가 최고였어요!`
+
+    let thx="조사에 답해주셔서 감사합니다."
+    window.confirm(thx)
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>몬스터잡기 게임</title>
+</head>
+<body>
+
+    <h1 id="start">몬스터 세계에 오신걸 환영합니다.</h1>
+
+    <div id="gaming"></div>
+
+<script>
+
+// 게임 시작
+    alert("!!!용사가 전쟁터에 도착했습니다!!!")
+    alert("전쟁을 시작하시겠습니까?")
+
+// 공격력받고 코드로 숫자 확인
+   const attack = prompt("몇 stat의 공격력으로 몬스터에게 데이지를 주시겠습니까?")
+        console.log(attack)
+
+// 몬스터 full hp
+    const hp = attack*132;
+        console.log(hp)
+
+    let count = 0;
+
+// 공격시작 ~ 끝 돌리기 게임
+
+    while(hp > 0) {
+// decrease hp
+        hp -= attack;
+    
+// counting
+        count += 1;
+
+//피드백
+        const x = document.createElement("p")
+        x.textContent = `몬스터를 ${count}회 공격했습니다.`
+        document.body.appendChild(x)
+        
+        const y = document.createElement("p")
+        x.textContent = `몬스터의 남은 hp는 ${hp}남았습니다.`
+        document.body.appendChild(y)
+        
+//게임 끝내는 조건
+        if(hp >= 0){
+            alert("게임이 끝났습니다.")};
+        
+        }
+    
+
+
+
+
+</script>
+   
+</body>
+</html>

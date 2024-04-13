@@ -1,0 +1,43 @@
+*{
+    background-color: rgb(182, 255, 231);
+}
+#pic{
+    border-radius: 100px;
+    border-width: 10px;
+    border-color: black;
+    border-style: double;
+    background-color: rgba(30%,80%,50%,1);
+    width: 50%;
+    margin-left: 170px;
+}
+h1{
+    font-family: "Gugi", "Nanum Pen Script", "Arial";
+    font-size: 50px;
+    text-align: center;
+    color: hsl(180, 10%, 60%)
+}
+.info{
+    text-align: center;
+    font-family: "Dongle", "Nanum Pen Script", "Arial";
+    font-size: 30px;
+    line-height: 10px;
+}
+#info{
+    text-decoration: underline;
+    color: #22BB77FF
+}
+.truth{
+    text-align: center;
+    font-family: "Nanum Pen Script", "Arial";
+    font-size: 30px;
+    line-height: 30px;
+}
+#truth{
+    text-decoration: underline;
+    color: #DD99AAFF
+}
+hr{
+    border-width: 2px;
+    border-color: hsl(280, 60%, 60%);
+    border-style: solid;
+}

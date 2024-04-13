@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>인수와 반환</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <script>
+        
+
+        // 인수 with parameter
+        callout("여기여기 모여라", "red")
+        callout("빨리 모여라", "greed")
+        callout("이리로 모여라", "blue")
+
+        function callout(here, and) {
+        const p = document.createElement("p")
+        document.body.appendChild(p)
+        p.textContent = here
+        p.style.color = and
+        }
+
+
+        // return
+        function what(){
+            console.log("just try code")
+
+            return "whatever"
+        }
+
+            console.log(what())
+
+
+        //argument with return
+        console.log(callout("여기여기 모여라", "red"))
+        console.log(callout("빨리 모여라", "greed"))
+        console.log(callout("이리로 모여라", "blue"))
+
+        function callout(here, and) {
+        const p = document.createElement("p")
+        document.body.appendChild(p)
+        p.textContent = here
+        p.style.color = and
+
+        return `너무 어려워 ${here} , ${and}`
+        }
+        
+        
+        
+    
+    </script>
+</body>
+
+</html>

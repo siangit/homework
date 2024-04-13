@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>의사요소와 의사클래스</title>
+    <style>
+        .menu{
+            padding: 5px;
+            border-bottom: 3px solid red;
+        }
+        .menu > li{
+            display: inline-block;
+            text-align: center;
+            width: 150px;
+
+        }
+        li > a{
+            display: inline-block;
+            text-decoration: none;
+            width: 100px;
+            height: 30px;
+            padding: 5px;
+    
+        
+        }
+        a:hover{
+            background-color: blueviolet;
+            color: aliceblue;
+        }
+
+        a:active{
+            background-color: green;
+            color: black;
+        }
+
+        /* active는 누르고 있는 동안
+        focus는 그냥 타이핑 직전 */
+        input:focus{
+            background-color: green;
+            color: white;
+        }
+
+        a::after{
+             content: "고르기";
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="#">짜장면</a></li>
+        <li><a href="#">짬뽕</a></li>
+        <li><a href="#">볶음밥</a></li>
+        <li><a href="#">탕수육</a></li>
+    </ul>
+    <input type="text">
+</body>
+</html>

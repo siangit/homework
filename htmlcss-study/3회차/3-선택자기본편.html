@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compabible" content="IE=edge">
+    <title>선택자 기본편</title>
+    <style>
+        /* 우선순위
+            1. 아이디 선택자
+            2. 클래스 선택자
+            3. 태그 선택자 */
+        
+        #favorite{
+            color: rgb(248, 52, 189);
+        }
+        .ko{
+            color: blue;
+        }
+        li.en{
+            color: green;
+        }
+        h1{
+            color: aquamarine;
+        }
+        li{
+            color: purple;
+        }
+        *{
+            color:black;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>방탄소년단 노래</h1>
+    <h3>방탄소년단은 앨범을 많이내서 노래가 많다.</h3>
+    <ul>
+        <li class="ko">봄 날</li>
+        <li class="ko" id="dance">쩔어</li>
+        <li class="en">Fake Love</li>
+        <li class="en" id="favorite">DNA</li>
+        <li class="ko">피땀눈물</li>
+    </ul>
+</body>
+</html>

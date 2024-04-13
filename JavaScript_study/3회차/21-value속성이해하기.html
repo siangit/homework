@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>value 속성 이해하기</title>
+</head>
+<body>
+
+<input id="talk">
+<input id="send" type="button" value="send">
+   
+    <script>
+        const input = document.getElementById("talk")
+        const button = document.getElementById("send")
+
+
+        input.addEventListener("keypress",function(me)
+            {
+                console.log(me.target.value)
+            })
+
+        button.addEventListener("click",
+        function(){
+            const p = document.createElement("p")
+            document.body.appendChild(p)
+            p.textContent = input.value
+        })
+    
+        
+    </script>
+</body>
+</html>

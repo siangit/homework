@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>겹치거나 넘치는 요소 다루기</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+        .c1{
+            background-color: aqua;
+            z-index: 0;
+            overflow: scroll;
+        }
+        .c2{
+            background-color: yellow; 
+            bottom: 50px;
+            z-index: 2;
+        }
+        .c3{
+            background-color: purple;
+            bottom: 100px;
+            z-index: 1;
+        }
+        .c4{
+            background-color:black;
+            bottom: 150px;
+            z-index:2;
+        }
+    </style>
+</head>
+<body>
+    <div class="c1">
+        우다다다다우다다다다우다다다다
+        우다다다다우다다다다우다다다다
+        우다다다다우다다다다우다다다다
+        우다다다다우다다다다우다다다다
+        우다다다다우다다다다우다다다다
+        우다다다다우다다다다우다다다다
+        우다다다다우다다다다우다다다다
+        우다다다다우다다다다우다다다다
+    </div>
+    <div class="c2">2</div>
+    <div class="c3">3</div>
+    <div class="c4">4</div>
+</body>
+</html>

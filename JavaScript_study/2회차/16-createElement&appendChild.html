@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>createElement & appendChild</title>
+</head>
+<body>
+
+<div id="tired"></div>
+   
+<script>
+    const x = document.getElementById("tired")
+
+    const y = document.createElement('p')
+    console.log(y)
+
+    y.textContent="피곤하다"
+    
+    x.appendChild(y)
+</script>
+</body>
+</html>

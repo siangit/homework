@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xa-u-compatible" content="IE=edge">
+    <title>함수 정의하고 호출하기</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <script>
+        
+        callout()
+        callout()
+        callout()
+
+        function callout() {
+        const p = document.createElement("p")
+        document.body.appendChild(p)
+        p.textContent = "피곤해"
+        }
+        
+        
+        
+        
+        
+        // 함수 선언식
+        function stop() {window.alert('그만해')}
+        
+        stop()
+
+        // 함수 표현식
+      const sleep =function() {window.alert('졸려')}
+
+        sleep()
+    </script>
+</body>
+
+</html>
