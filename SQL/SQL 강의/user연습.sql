@@ -1,0 +1,10 @@
+-- USE mysql;
+-- select * from user;
+-- create user 'sianni'@'localhost' IDENTIFIED BY 'tldkswndlssla';
+-- select * from user;
+-- GRANT ALL PRIVILEGES ON *.* TO 'sianni'@'localhost'
+-- FLUSH PRIVILEGES
+-- SHOW GRANTS FOR 'sianni'@'localhost'
+-- SHOW GRANTS
+-- USE mysql
+-- DROP USER 'sianni'@'localhost'
