@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if data %}
+    <title>{{ data.title }}</title>
+    {% else %}
+    <title>Page Title</title>
+    {% endif %}
+</head>
+<body>
+    {% if data %}
+    <h1>Hi, {{ data.user }}</h1>
+
+    {% if data.is_admin %}
+    <p>You have admin privileges.</p>
+    {% else %}
+    <p>You do not have admin privileges.</p>
+    {% endif %}
+
+    <ul>
+        {% for item in data.items_list %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if users %}
+    <h2>username</h2>
+    <ul>
+        {% for username in users.username_list %}
+        <li>{{ username }}</li>
+        {% endfor %}
+    </ul>
+    <h2>name</h2>
+    <ul>
+        {% for name in users.name_list %}
+        <li>{{ name }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
