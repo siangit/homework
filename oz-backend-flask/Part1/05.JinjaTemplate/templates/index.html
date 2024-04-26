@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if data %}
+   
     <title>{{ data.title }}</title>
-    {% else %}
-    <title>Page Title</title>
-    {% endif %}
+
 </head>
 <body>
+    <!-- 제어 -->
     {% if data %}
     <h1>Hi, {{ data.user }}</h1>
 
