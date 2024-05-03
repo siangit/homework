@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from db import db
 # from models import User, Board
 
+
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:tldkswndlssla@localhost/oz'
