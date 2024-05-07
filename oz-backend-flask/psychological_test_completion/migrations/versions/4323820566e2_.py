@@ -26,6 +26,13 @@ def upgrade():
         sa.PrimaryKeyConstraint("id"),
     )
     op.create_table(
+        "user",
+        sa.Column("id", sa.Integer(), nullable=False),
+        sa.Column("username", sa.String(length=50), nullable=True),
+        sa.Column("password", sa.String(length=50), nullable=True),
+        sa.PrimaryKeyConstraint("id"),
+    )
+    op.create_table(
         "participant",
         sa.Column("id", sa.Integer(), nullable=False),
         sa.Column("name", sa.String(length=50), nullable=True),

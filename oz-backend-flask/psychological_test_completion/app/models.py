@@ -18,6 +18,14 @@ class Admin(db.Model):
     password = db.Column(db.String(50))
 
 
+class User(db.Model):
+    __tablename__ = "user"
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50))
+    password = db.Column(db.String(50))
+
+
+
 class Question(db.Model):
     __tablename__ = "question"
     id = db.Column(db.Integer, primary_key=True)

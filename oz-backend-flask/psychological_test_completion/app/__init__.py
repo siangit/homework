@@ -4,7 +4,7 @@ from flask.cli import with_appcontext
 import os
 import click
 from .database import db
-from .models import Question, Admin, Participant  # Question 모델 임포트
+from .models import Question, Admin, User, Participant  # Question 모델 임포트
 from werkzeug.security import generate_password_hash
 from datetime import datetime, timedelta
 
@@ -42,10 +42,16 @@ def create_app():
         ]
         yesterday = datetime.utcnow() - timedelta(days=1)  # 어제 날짜 계산
 
+        existing_main = User.query.filter_by(username="sian").first()
+        if not existing_main:
+            hashed_password = generate_password_hash("best")  # 비밀번호를 해시 처리
+            new_main = User(username="sian", password=hashed_password)
+            db.session.add(new_main)
+
         # 관리자 계정 추가 로직, 비밀번호 해시 처리 적용
         existing_admin = Admin.query.filter_by(username="admin").first()
         if not existing_admin:
-            hashed_password = generate_password_hash("0000")  # 비밀번호를 해시 처리
+            hashed_password = generate_password_hash("1111")  # 비밀번호를 해시 처리
             new_admin = Admin(username="admin", password=hashed_password)
             db.session.add(new_admin)
 

@@ -8,8 +8,9 @@ from flask import (
     flash,
     session,
 )
+from functools import wraps
 from werkzeug.security import check_password_hash
-from .models import Question, Participant, Quiz, Admin
+from .models import Question, Participant, Quiz, Admin, User
 from .database import db
 import plotly.express as px
 import pandas as pd
@@ -43,7 +44,20 @@ def add_participant():
     return jsonify(
         {"redirect": url_for("main.quiz"), "participant_id": new_participant.id}
     )
+@main.route("/signup", methods=["GET","POST"])
+def signup():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
 
+        user = User.query.filter_by(username=username).first()
+        if user and check_password_hash(user.password, password):
+            session["user_sign_up"] = True
+            return redirect(url_for("main.show_results"))
+        else:
+            flash("Invalid username or password")
+
+    return render_template("user.html")
 
 @main.route("/quiz")
 def quiz():
@@ -109,8 +123,17 @@ def get_questions():
     ]
     return jsonify(questions=questions_list)
 
+def signup_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user_sign_up" not in session:
+            return redirect(url_for("main.signup", next=request.url))
+        return f(*args, **kwargs)
 
-@main.route("/results")
+    return decorated_function
+
+@main.route("/results",methods=["GET", "POST"])
+@signup_required
 def show_results():
     # 데이터베이스에서 데이터 조회
     participants_query = Participant.query.all()
