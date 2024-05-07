@@ -27,7 +27,7 @@
 <body>
     <div id="question"></div>
     <div id="buttons">
-        <button id="yes"">그렇다</button>
+        <button id="yes">그렇다</button>
         <button id="no">아니다</button>
     </div>
     <div id="resultPage" style="display: none;">
@@ -52,6 +52,7 @@
         async function initializeQuiz() {
             questions_list = await fetchQuestions();
             userAnswers = Array(questions_list.length).fill(null);
+            yesCount=0
             showQuestion();
         }
 
@@ -60,12 +61,22 @@
                 questionElement.innerText = questions_list[currentQuestionIndex].content;
                 buttonsElement.style.display = "block";
                 resultPageElement.style.display = "none";
-            } else {
-                questionElement.innerText = "심리테스트가 종료되었습니다.";
+            } 
+            else {
+        // userAnswers 배열에서 "yes" 응답의 수 계산
+            const yesCount = userAnswers.filter(answer => answer === "yes").length;
+            if (yesCount >= 4) {
+                questionElement.innerText = "당신은 T 입니다.";
+                buttonsElement.style.display = "none";
+                resultPageElement.style.display = "block";
+            } 
+            else  {
+                questionElement.innerText = "당신은 F 입니다.";
                 buttonsElement.style.display = "none";
                 resultPageElement.style.display = "block";
             }
         }
+    }
 
         document.getElementById("yes").addEventListener("click", () => {
             userAnswers[currentQuestionIndex] = "yes";
