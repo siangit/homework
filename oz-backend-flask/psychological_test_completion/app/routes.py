@@ -59,6 +59,7 @@ def signup():
 
     return render_template("user.html")
 
+
 @main.route("/quiz")
 def quiz():
     # 퀴즈 페이지를 렌더링합니다. 참여자 ID 쿠키가 필요합니다.
@@ -266,6 +267,10 @@ def show_results():
     # 데이터를 results.html에 전달
     return render_template("results.html", graphs_json=graphs_json)
 
+@main.route("/signout")
+def logout():
+    session.pop("user_sign_up", None)
+    return redirect(url_for("user.signin"))
 
 @admin.route("", methods=["GET", "POST"])
 def login():
@@ -274,7 +279,7 @@ def login():
         password = request.form["password"]
 
         admin = Admin.query.filter_by(username=username).first()
-
+ 
         if admin and check_password_hash(admin.password, password):
             session["admin_logged_in"] = True
             return redirect(url_for("admin.dashboard"))

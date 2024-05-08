@@ -6,12 +6,6 @@
     <title>Results Dashboard</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
 
         h1 {
             text-align: center;
@@ -76,5 +70,8 @@
             Plotly.newPlot(div.id, ageQuizResponse.data, ageQuizResponse.layout);
 });
     </script>
+    <a href="{{ url_for('main.signup') }}">
+        <button class="user-button">signout</button>
+    </a>
 </body>
 </html>
