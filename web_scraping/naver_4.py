@@ -8,16 +8,19 @@ header_user = {
 
 base_url = "https://search.naver.com/search.naver?sm=tab_hty.top&ssc=tab.blog.all&query="
 
-keyword = input("검색어를 하나만 입력해주세요 ")
+keyword = "유산균"
 
 url = base_url+keyword
 # print(url)
 req = requests.get(url, headers = header_user)
+
 html = req.text
 soup = BeautifulSoup(html, "html.parser")
 
 results = soup.select(".title_link")
+advertisement = soup.select(".spblog.ico_ad")
+viewall = soup.select(".view_wrap")
 
-
-for i in results:
-    print(i.text)
+for i in zip(viewall,results):
+    if "spblog ico_ad" in i[0]:
+        print(i[1].text)
