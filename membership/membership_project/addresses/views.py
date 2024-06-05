@@ -5,7 +5,12 @@ from rest_framework.exceptions import NotFound
 from .models import Address
 
 # Create your views here.
+
+########### APIView => 데이터 교환을 위한 class#########
+
 class Addresses(APIView):
+#Function-Based Views(FBV) 방식 (단일함수로 작성된 로직)
+# 장점: 간결하고 직관적/////또 다른 방식(Class-Based View(CBV))
     def get(self, request):
         addresses = Address.objects.all()
         serializer = AddressSerializer(addresses,many=True)
@@ -30,8 +35,22 @@ class AddressesDetail(APIView):
 class CreateUserAddress(APIView):
     def post(self,request, user_id):
         # 역직렬화 (client의 jason data => object)
+        #request.data = user로 부터 받은 데이터
         serializer = AddressSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user_id=user_id)
             return Response(serializer.data)
         return Response(serializer.errors)
+
+class UpdateUserAddress(APIView):
+#     #데이터 불러와서 읽기
+    def get_object(self, pk):
+        try:
+            return Address.objects.get(pk=pk)
+        except Address.DoesNotExist:
+            raise NotFound
+        
+    def put(self, request, pk):
+        address = self.get_object(pk)
+        if address is None:
+            return Response(({'error'}))
