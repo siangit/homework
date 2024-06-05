@@ -10,4 +10,5 @@ class AddressSerializer(ModelSerializer):
 class AddressListSerializer(ModelSerializer):
     class Meta:
         model = Address
-        fields = ("user", "street", "city", "state", "postal_code","country")
+        fields = ["user", "street", "city", "state", "postal_code","country"]
+        depth = 1

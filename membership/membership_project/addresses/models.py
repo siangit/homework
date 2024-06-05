@@ -13,4 +13,4 @@ class Address(models.Model):
     country = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.user
+        return f"{self.street}, {self.city}, {self.state}, {self.postal_code}, {self.country}"
