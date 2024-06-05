@@ -43,7 +43,7 @@ class CreateUserAddress(APIView):
         return Response(serializer.errors)
 
 class UpdateUserAddress(APIView):
-#     #데이터 불러와서 읽기
+##########데이터 불러와서 읽기##########
     def get_object(self, pk):
         try:
             return Address.objects.get(pk=pk)
@@ -51,6 +51,25 @@ class UpdateUserAddress(APIView):
             raise NotFound
         
     def put(self, request, pk):
+        address = self.get_object(pk)
+        if address is None:
+            return Response(({'error'}))
+        
+##########update save 코드########
+        serializer = AddressSerializer(address, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    
+class DeleteUserAddress(APIView):
+    def get_object(self,pk):
+        try:
+            return Address.objects.get(pk=pk)
+        except Address.DoesNotExist:
+            raise NotFound
+    
+    def delete(self, request, pk):
         address = self.get_object(pk)
         if address is None:
             return Response(({'error'}))
