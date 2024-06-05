@@ -11,6 +11,7 @@ class Addresses(APIView):
         serializer = AddressSerializer(addresses,many=True)
         return Response(serializer.data)
     
+
 class AddressesDetail(APIView):
     def get_object(self, id):
         try:
@@ -24,3 +25,13 @@ class AddressesDetail(APIView):
             return Response({'error':'Address not found'})
         serializer = AddressSerializer(address)
         return Response(serializer.data)
+    
+
+class CreateUserAddress(APIView):
+    def post(self,request, user_id):
+        # 역직렬화 (client의 jason data => object)
+        serializer = AddressSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user_id=user_id)
+            return Response(serializer.data)
+        return Response(serializer.errors)
