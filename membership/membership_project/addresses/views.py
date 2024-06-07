@@ -2,7 +2,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import AddressSerializer
 from rest_framework.exceptions import NotFound
+from rest_framework.authentication import TokenAuthentication #사용자 인증
+from rest_framework.permissions import IsAuthenticated #권한 부여
 from .models import Address
+
 
 # Create your views here.
 
@@ -11,6 +14,11 @@ from .models import Address
 class Addresses(APIView):
 #Function-Based Views(FBV) 방식 (단일함수로 작성된 로직)
 # 장점: 간결하고 직관적/////또 다른 방식(Class-Based View(CBV))
+
+    #token 인증 사용자만 접근하도록 추가
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         addresses = Address.objects.all()
         serializer = AddressSerializer(addresses,many=True)
@@ -18,6 +26,11 @@ class Addresses(APIView):
     
 
 class AddressesDetail(APIView):
+
+    #token 인증 사용자만 접근하도록 추가
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
     def get_object(self, id):
         try:
             return Address.objects.get(id=id)
