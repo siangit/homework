@@ -16,7 +16,7 @@ class Addresses(APIView):
 # 장점: 간결하고 직관적/////또 다른 방식(Class-Based View(CBV))
 
     #token 인증 사용자만 접근하도록 추가
-    authentication_classes = [TokenAuthentication]
+    # authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -28,7 +28,7 @@ class Addresses(APIView):
 class AddressesDetail(APIView):
 
     #token 인증 사용자만 접근하도록 추가
-    authentication_classes = [TokenAuthentication]
+    # authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_object(self, id):
